@@ -1,1 +1,41 @@
 
+.container {
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-left: -65px;
+  margin-top: -20px;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+}
+
+.button {
+  outline:none;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid #1ecd97;
+  color: #1ecd97;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  &:hover {
+    color:white;
+    background: $green;
+  }
+}
+
+.button:hover {
+  color: white;
+  background: #1ecd97;
+}
+
+.list {
+  margin: 30px;
+}
