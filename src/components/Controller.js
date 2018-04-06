@@ -14,7 +14,7 @@ class Controller extends React.Component{
     return(
       <div className="container">
         <Link to='/list'>
-          <button className="button button__begin" onSubmit={this.props.handleSubmit}>Comenzar</button>
+          <button className="button button__begin" onClick={this.props.handleClick}>Comenzar</button>
         </Link>
       </div>
     )

@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       pilots: []
@@ -28,16 +28,39 @@ class App extends Component {
   }
 
   componentDidMount(){
-		fetch('http://ergast.com/api/f1/2013/driverStandings.json?callback=JSON_CALLBACK%22,method:%20%27JSONP%27')
+		fetch('https://ergast.com/api/f1/2013/driverStandings.json')
 		.then(response => response.json())
 		.then(json => {
 			this.setState({pilots: json});
 				console.log(this.state.pilots)
 		});
-
 	}
 
-  handleSubmit(e){
+  getData() {
+    const pilots = this.state.pilots;
+    const pilot = MRData.StandingsTable.StandingsLists.0.DriverStandings;
+    const listHTML = '';
+    for (var i = 0; i < pilot.length; i++) {
+      const name = pilot[i].Driver.familyName
+    }
+  }
+
+
+
+  // function addIngredients() {
+  // fetch('https://raw.githubusercontent.com/Adalab/recipes-data/master/rissoto-setas.json')
+  // .then(function(response){
+  //   return response.json();
+  // })
+  // .then(function(json){
+  //   var recipe = json.recipe;
+  //   var recipeIngredients = recipe.ingredients;
+  //   var listHTML = '';
+  //   for (var i = 0; i < recipeIngredients.length; i++) {
+  //     var brand = (recipeIngredients[i].brand != undefined) ? recipeIngredients[i].brand : "";
+  //     listHTML += Y aqui ya pinto todos los ingredientes en un zliZ o algo asii
+
+  handleClick(e){
     e.preventDefault();
   }
 
@@ -50,19 +73,13 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() =>
             <Controller
-              onSubmit={this.handleSubmit}/>}
+              onClick={this.handleClick}/>}
           />
           <Route path='/list' render={() =>
-            <ul className="pilots__list">
-              <li className="container__pilots">
-                {pilots.map (pilot =>
-                  <List name = {pilots.givenName}
-                    surname = {pilots.familyName}
-                    team = {pilots.name}/>
-                )}
-
-              </li>
-            </ul>}
+            <List name = {pilots.givenName}
+              surname = {pilots.familyName}
+              team = {pilots.name}/>
+          }
           />
         </Switch>
       </div>
