@@ -36,29 +36,14 @@ class App extends Component {
 		});
 	}
 
-  getData() {
-    const pilots = this.state.pilots;
-    const pilot = MRData.StandingsTable.StandingsLists.0.DriverStandings;
-    const listHTML = '';
-    for (var i = 0; i < pilot.length; i++) {
-      const name = pilot[i].Driver.familyName
-    }
-  }
+  printPilots() {
+  		const pilotsInEvolution = this.state.pilots;
+  		console.log('pilotsInEvolution', pilotsInEvolution)
+  		return (
+  			<List pilotsbugs = {pilotsInEvolution}/>
+  		);
+  	}
 
-
-
-  // function addIngredients() {
-  // fetch('https://raw.githubusercontent.com/Adalab/recipes-data/master/rissoto-setas.json')
-  // .then(function(response){
-  //   return response.json();
-  // })
-  // .then(function(json){
-  //   var recipe = json.recipe;
-  //   var recipeIngredients = recipe.ingredients;
-  //   var listHTML = '';
-  //   for (var i = 0; i < recipeIngredients.length; i++) {
-  //     var brand = (recipeIngredients[i].brand != undefined) ? recipeIngredients[i].brand : "";
-  //     listHTML += Y aqui ya pinto todos los ingredientes en un zliZ o algo asii
 
   handleClick(e){
     e.preventDefault();
